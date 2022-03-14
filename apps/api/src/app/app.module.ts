@@ -1,11 +1,8 @@
 import { Module } from '@nestjs/common';
 
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { WbtcOrderBookModule } from '@wbtc-stats/feature/wbtc-order-book';
 
 @Module({
-  imports: [],
-  controllers: [AppController],
-  providers: [AppService],
+  imports: [WbtcOrderBookModule],
 })
 export class AppModule {}

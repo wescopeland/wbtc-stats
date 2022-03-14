@@ -1,0 +1,22 @@
+{
+  "root": "libs/feature/wbtc-order-book",
+  "sourceRoot": "libs/feature/wbtc-order-book/src",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/feature/wbtc-order-book/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/feature/wbtc-order-book"],
+      "options": {
+        "jestConfig": "libs/feature/wbtc-order-book/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

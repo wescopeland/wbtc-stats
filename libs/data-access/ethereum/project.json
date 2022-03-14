@@ -1,0 +1,22 @@
+{
+  "root": "libs/data-access/ethereum",
+  "sourceRoot": "libs/data-access/ethereum/src",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/data-access/ethereum/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/data-access/ethereum"],
+      "options": {
+        "jestConfig": "libs/data-access/ethereum/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

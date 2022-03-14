@@ -7,14 +7,23 @@
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "esModuleInterop": true,
     "importHelpers": true,
+    "resolveJsonModule": true,
     "target": "es2015",
     "module": "esnext",
     "lib": ["es2017", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@wbtc-stats/data-access/ethereum": [
+        "libs/data-access/ethereum/src/index.ts"
+      ],
+      "@wbtc-stats/feature/wbtc-order-book": [
+        "libs/feature/wbtc-order-book/src/index.ts"
+      ]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

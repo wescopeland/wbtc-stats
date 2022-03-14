@@ -1,6 +1,8 @@
 {
   "version": 2,
   "projects": {
-    "api": "apps/api"
+    "api": "apps/api",
+    "data-access-ethereum": "libs/data-access/ethereum",
+    "feature-wbtc-order-book": "libs/feature/wbtc-order-book"
   }
 }
