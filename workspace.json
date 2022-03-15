@@ -3,6 +3,8 @@
   "projects": {
     "api": "apps/api",
     "data-access-ethereum": "libs/data-access/ethereum",
-    "feature-wbtc-order-book": "libs/feature/wbtc-order-book"
+    "feature-wbtc-order-book": "libs/feature/wbtc-order-book",
+    "web": "apps/web",
+    "web-e2e": "apps/web-e2e"
   }
 }
