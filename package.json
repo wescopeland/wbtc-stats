@@ -4,9 +4,8 @@
   "license": "MIT",
   "scripts": {
     "start": "nx serve",
-    "start:web": "nx serve web",
-    "start:api": "nx serve api",
     "build": "nx build api && nx build web",
+    "prod:web": "cd dist/apps/web && next start",
     "test": "nx test"
   },
   "private": true,
