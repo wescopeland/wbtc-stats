@@ -27,7 +27,7 @@ HomePage.getLayout = (page: ReactElement) => {
   return <BaseLayout>{page}</BaseLayout>;
 };
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const ordersResponse = await fetch(
     `${process.env.API_BASE_URL ?? ''}/api/wbtc/orders?pageSize=15&page=1`
   ).then((res) => res.json());
