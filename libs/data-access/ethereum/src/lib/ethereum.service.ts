@@ -15,6 +15,12 @@ export class EthereumService {
     return this.#provider.getBlockNumber();
   }
 
+  async getBlockTimestamp(blockNumber: string) {
+    const block = await this.#provider.getBlock(blockNumber);
+
+    console.log({ block });
+  }
+
   async getWbtcContract() {
     const contractAddress = '0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599';
 

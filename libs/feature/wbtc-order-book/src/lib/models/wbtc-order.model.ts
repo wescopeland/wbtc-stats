@@ -1,5 +1,7 @@
 export interface WbtcOrder {
-  amount: string;
-  date: string;
+  amount: number;
+  fromAddress: string;
+  timestamp: number;
   type: 'mint' | 'burn';
+  transaction: string;
 }

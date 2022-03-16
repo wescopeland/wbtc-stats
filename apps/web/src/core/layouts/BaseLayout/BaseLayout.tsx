@@ -1,6 +1,6 @@
 import type { FC } from 'react';
 
-import { AppBar } from '@/core/components/AppBar';
+import { AppBar } from '../../components/AppBar';
 
 export const BaseLayout: FC = ({ children }) => {
   return (
