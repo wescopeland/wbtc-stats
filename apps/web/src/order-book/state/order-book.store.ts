@@ -38,7 +38,7 @@ export const createOrderBookStore = (preloadedOrderBookState = {}) =>
 
       const nextPageOrders = await fetch(
         `${
-          process.env.API_BASE_URL ?? ''
+          process.env.NEXT_PUBLIC_API_BASE_URL ?? ''
         }/api/wbtc/orders?pageSize=15&page=${nextPage}`
       ).then((res) => res.json());
 

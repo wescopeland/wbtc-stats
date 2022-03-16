@@ -29,11 +29,13 @@ HomePage.getLayout = (page: ReactElement) => {
 
 export async function getServerSideProps() {
   const ordersResponse = await fetch(
-    `${process.env.API_BASE_URL ?? ''}/api/wbtc/orders?pageSize=15&page=1`
+    `${
+      process.env.NEXT_PUBLIC_API_BASE_URL ?? ''
+    }/api/wbtc/orders?pageSize=15&page=1`
   ).then((res) => res.json());
 
   const supplyResponse = await fetch(
-    `${process.env.API_BASE_URL ?? ''}/api/wbtc/supply`
+    `${process.env.NEXT_PUBLIC_API_BASE_URL ?? ''}/api/wbtc/supply`
   ).then((res) => res.json());
 
   return {
