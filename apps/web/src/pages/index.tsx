@@ -29,14 +29,12 @@ HomePage.getLayout = (page: ReactElement) => {
 
 export async function getStaticProps() {
   const ordersResponse = await fetch(
-    'http://localhost:3333/api/wbtc/orders?pageSize=15&page=1'
+    `${process.env.API_BASE_URL ?? ''}/api/wbtc/orders?pageSize=15&page=1`
   ).then((res) => res.json());
 
   const supplyResponse = await fetch(
-    'http://localhost:3333/api/wbtc/supply'
+    `${process.env.API_BASE_URL ?? ''}/api/wbtc/supply`
   ).then((res) => res.json());
-
-  console.log(supplyResponse);
 
   return {
     props: {
