@@ -1,5 +1,4 @@
 import type { ReactElement } from "react";
-import type { GetServerSidePropsContext } from "next";
 
 import type { AppPage } from "../core/models";
 import { BaseLayout } from "../core/layouts/BaseLayout";
@@ -28,12 +27,7 @@ HomePage.getLayout = (page: ReactElement) => {
   return <BaseLayout>{page}</BaseLayout>;
 };
 
-export async function getServerSideProps({ res }: GetServerSidePropsContext) {
-  res.setHeader(
-    "Cache-Control",
-    "public, s-maxage=10, stale-while-revalidate=59"
-  );
-
+export async function getServerSideProps() {
   const ordersResponse = await fetch(
     `${
       process.env.NEXT_PUBLIC_API_BASE_URL ?? ""
