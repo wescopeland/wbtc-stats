@@ -1,15 +1,15 @@
 module.exports = {
-  displayName: 'data-access-ethereum',
-  preset: '../../../jest.preset.js',
+  displayName: "data-access-ethereum",
+  preset: "../../../jest.preset.js",
   globals: {
-    'ts-jest': {
-      tsconfig: '<rootDir>/tsconfig.spec.json',
-    },
+    "ts-jest": {
+      tsconfig: "<rootDir>/tsconfig.spec.json"
+    }
   },
-  testEnvironment: 'node',
+  testEnvironment: "node",
   transform: {
-    '^.+\\.[tj]s$': 'ts-jest',
+    "^.+\\.[tj]s$": "ts-jest"
   },
-  moduleFileExtensions: ['ts', 'js', 'html'],
-  coverageDirectory: '../../../coverage/libs/data-access/ethereum',
+  moduleFileExtensions: ["ts", "js", "html"],
+  coverageDirectory: "../../../coverage/libs/data-access/ethereum"
 };

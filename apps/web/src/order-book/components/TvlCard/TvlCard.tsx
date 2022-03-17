@@ -1,10 +1,10 @@
-import type { VFC } from 'react';
-import Image from 'next/image';
-import shallow from 'zustand/shallow';
+import type { VFC } from "react";
+import Image from "next/image";
+import shallow from "zustand/shallow";
 
-import { Card } from '../Card';
-import { CardHeader } from '../CardHeader';
-import { useOrderBookStore } from '../../state/order-book.store';
+import { Card } from "../Card";
+import { CardHeader } from "../CardHeader";
+import { useOrderBookStore } from "../../state/order-book.store";
 
 export const TvlCard: VFC = () => {
   const [currentBtcInCustody, currentWbtcSupply] = useOrderBookStore(

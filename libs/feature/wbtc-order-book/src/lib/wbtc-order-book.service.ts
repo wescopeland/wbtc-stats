@@ -3,20 +3,20 @@ import {
   Inject,
   CACHE_MANAGER,
   OnModuleInit,
-  Logger,
-} from '@nestjs/common';
-import { ethers } from 'ethers';
-import { HttpService } from '@nestjs/axios';
-import type { Event } from 'ethers';
-import { Cache } from 'cache-manager';
-import { lastValueFrom } from 'rxjs';
+  Logger
+} from "@nestjs/common";
+import { ethers } from "ethers";
+import { HttpService } from "@nestjs/axios";
+import type { Event } from "ethers";
+import { Cache } from "cache-manager";
+import { lastValueFrom } from "rxjs";
 
-import { EthereumService } from '@wbtc-stats/data-access/ethereum';
+import { EthereumService } from "@wbtc-stats/data-access/ethereum";
 
 @Injectable()
 export class WbtcOrderBookService implements OnModuleInit {
   #logger = new Logger(WbtcOrderBookService.name);
-  #ordersCacheKey = 'ALL_WBTC_ORDERS';
+  #ordersCacheKey = "ALL_WBTC_ORDERS";
 
   contract: ethers.Contract | null = null;
 
@@ -28,11 +28,11 @@ export class WbtcOrderBookService implements OnModuleInit {
 
   async onModuleInit() {
     this.contract = await this.ethereumService.getWbtcContract();
-    this.#logger.log('Connected to the WBTC contract.');
+    this.#logger.log("Connected to the WBTC contract.");
   }
 
   async fetchMaxTotalSupply() {
-    this.#logger.log('Fetching WBTC max total supply.');
+    this.#logger.log("Fetching WBTC max total supply.");
 
     const decimals = await this.contract.decimals();
     const totalSupply = await this.contract.totalSupply();
@@ -47,13 +47,13 @@ export class WbtcOrderBookService implements OnModuleInit {
   }
 
   async fetchCustodialReserveAmount() {
-    this.#logger.log('Fetching BTC custodial reserve amount.');
+    this.#logger.log("Fetching BTC custodial reserve amount.");
 
     // TODO: A better way to do this would be to query the list of all
     // custodial native BTC wallet addresses. This is a lazy approach.
     const { data: custodialReserveResponse } = await lastValueFrom(
       this.httpService.get<{ holdings: string }>(
-        'https://wbtc.network/api/chain/eth/token/wbtc'
+        "https://wbtc.network/api/chain/eth/token/wbtc"
       )
     );
 
@@ -77,7 +77,7 @@ export class WbtcOrderBookService implements OnModuleInit {
     if (!cachedAllOrders) {
       this.#logger.log(`${this.#ordersCacheKey} cache miss.`);
 
-      const blockMap = { genesis: 0, now: 'latest' };
+      const blockMap = { genesis: 0, now: "latest" };
 
       const mintEvents = await this.contract.queryFilter(
         this.contract.filters.Mint(),
@@ -102,7 +102,7 @@ export class WbtcOrderBookService implements OnModuleInit {
         `Writing ${allEvents.length} orders to cache ${this.#ordersCacheKey}.`
       );
       await this.cacheManager.set(this.#ordersCacheKey, allEvents, {
-        ttl: 300_000, // Five minutes
+        ttl: 300_000 // Five minutes
       });
 
       this.#logger.log(`Returning ${allEvents.length} fetched orders.`);
@@ -131,7 +131,7 @@ export class WbtcOrderBookService implements OnModuleInit {
         eventTimestampCacheKey,
         sanitizedTimestamp,
         {
-          ttl: 3.6e6, // One hour
+          ttl: 3.6e6 // One hour
         }
       );
 

@@ -1,8 +1,8 @@
-import { Module } from '@nestjs/common';
+import { Module } from "@nestjs/common";
 
-import { WbtcOrderBookModule } from '@wbtc-stats/feature/wbtc-order-book';
+import { WbtcOrderBookModule } from "@wbtc-stats/feature/wbtc-order-book";
 
 @Module({
-  imports: [WbtcOrderBookModule],
+  imports: [WbtcOrderBookModule]
 })
 export class AppModule {}

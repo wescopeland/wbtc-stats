@@ -1,8 +1,8 @@
-import '../core/styles/globals.css';
+import "../core/styles/globals.css";
 
-import type { AppProps } from 'next/app';
+import type { AppProps } from "next/app";
 
-import type { AppPage } from '../core/models';
+import type { AppPage } from "../core/models";
 
 type AppPropsWithLayout = AppProps & {
   Component: AppPage;

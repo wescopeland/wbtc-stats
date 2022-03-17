@@ -1,11 +1,11 @@
-import type { VFC } from 'react';
-import { TransactionRecord } from './TransactionRecord';
-import shallow from 'zustand/shallow';
-import { Fragment } from 'react';
+import type { VFC } from "react";
+import { TransactionRecord } from "./TransactionRecord";
+import shallow from "zustand/shallow";
+import { Fragment } from "react";
 
-import { useOrderBookStore } from '../../state/order-book.store';
-import { Card } from '../Card';
-import { LoadMoreButton } from '../LoadMoreButton';
+import { useOrderBookStore } from "../../state/order-book.store";
+import { Card } from "../Card";
+import { LoadMoreButton } from "../LoadMoreButton";
 
 export const OrderBookCard: VFC = () => {
   const [allOrders] = useOrderBookStore((state) => [state.allOrders], shallow);

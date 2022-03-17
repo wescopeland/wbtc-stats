@@ -1,1 +1,1 @@
-export * from './TvlCard';
+export * from "./TvlCard";

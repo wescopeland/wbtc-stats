@@ -6,6 +6,7 @@
     "start": "nx serve",
     "build": "nx build api && nx build web",
     "prod:web": "cd dist/apps/web && next start",
+    "format:write": "prettier --write . '**/*.{json,md,js,ts,tsx}'",
     "test": "nx test"
   },
   "private": true,

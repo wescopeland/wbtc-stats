@@ -1,1 +1,1 @@
-export * from './app-page.model';
+export * from "./app-page.model";

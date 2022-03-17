@@ -1,1 +1,1 @@
-export * from './wbtc-order.model';
+export * from "./wbtc-order.model";

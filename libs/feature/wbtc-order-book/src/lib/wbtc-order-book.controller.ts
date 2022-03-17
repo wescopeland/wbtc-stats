@@ -1,18 +1,18 @@
-import { Controller, Get, Query } from '@nestjs/common';
-import chunk from 'chunk';
-import type { Event } from 'ethers';
-import { ethers } from 'ethers';
+import { Controller, Get, Query } from "@nestjs/common";
+import chunk from "chunk";
+import type { Event } from "ethers";
+import { ethers } from "ethers";
 
-import type { WbtcOrder } from './models';
-import { WbtcOrderBookService } from './wbtc-order-book.service';
+import type { WbtcOrder } from "./models";
+import { WbtcOrderBookService } from "./wbtc-order-book.service";
 
-@Controller('wbtc')
+@Controller("wbtc")
 export class WbtcOrderBookController {
   #wbtcDigits = 8;
 
   constructor(private readonly orderBookService: WbtcOrderBookService) {}
 
-  @Get('supply')
+  @Get("supply")
   async getSupply() {
     const wbtcSupply = await this.orderBookService.fetchMaxTotalSupply();
     const btcInCustody =
@@ -21,10 +21,10 @@ export class WbtcOrderBookController {
     return { wbtcSupply, btcInCustody };
   }
 
-  @Get('orders')
+  @Get("orders")
   async getOrders(
-    @Query('pageSize') pageSize = '30',
-    @Query('page') page = '1'
+    @Query("pageSize") pageSize = "30",
+    @Query("page") page = "1"
   ) {
     const sanitizedPageSize = Number(pageSize);
     const sanitizedPage = Number(page);
@@ -61,9 +61,9 @@ export class WbtcOrderBookController {
     for (const event of events) {
       const timestamp = await this.orderBookService.fetchEventTimestamp(event);
 
-      let type: 'mint' | 'burn' = 'mint';
-      if (event.event === 'Burn') {
-        type = 'burn';
+      let type: "mint" | "burn" = "mint";
+      if (event.event === "Burn") {
+        type = "burn";
       }
 
       const amount = Number(
@@ -75,7 +75,7 @@ export class WbtcOrderBookController {
         type,
         amount,
         fromAddress: event.args[0],
-        transaction: event.transactionHash,
+        transaction: event.transactionHash
       });
     }
 
