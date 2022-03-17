@@ -27,7 +27,7 @@ HomePage.getLayout = (page: ReactElement) => {
   return <BaseLayout>{page}</BaseLayout>;
 };
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const ordersResponse = await fetch(
     `${
       process.env.NEXT_PUBLIC_API_BASE_URL ?? ''
@@ -47,6 +47,7 @@ export async function getServerSideProps() {
         allOrders: ordersResponse.orders,
       },
     },
+    revalidate: 5 * 60, // Five minutes
   };
 }
 
