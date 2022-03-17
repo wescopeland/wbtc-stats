@@ -46,8 +46,7 @@ export async function getServerSideProps() {
         currentWbtcSupply: supplyResponse.wbtcSupply,
         allOrders: ordersResponse.orders
       }
-    },
-    revalidate: 5 * 60 // Five minutes
+    }
   };
 }
 
